@@ -1,6 +1,6 @@
 package com.dobe.WebSocket.config;
 
-import com.dobe.WebSocket.model.Message;
+import com.dobe.WebSocket.model.ChatMessage;
 import com.dobe.WebSocket.model.MessageType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ public class WebSocketEventListener {
         String username = (String) headerAccessor.getSessionAttributes().get("username");
         if(username != null) {
             System.out.println("User Disconnected : " + username);
-            Message chatMessage = Message.builder()
+            ChatMessage chatMessage = ChatMessage.builder()
                     .type(MessageType.LEAVE)
                     .sender(username)
                     .build();
